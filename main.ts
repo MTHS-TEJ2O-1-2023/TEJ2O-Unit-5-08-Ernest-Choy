@@ -1,9 +1,12 @@
 /* Copyright (c) 2020 MTHS All rights reserved
  *
- * Created by: Mr. Coxall
- * Created on: Sep 2020
- * This program ...
+ * Created by: Ernest
+ * Created on: Nov 2023
+ * This program moves stepper motors
 */
+
+// variables
+let distanceToTarget: number = 0
 
 //setup
 basic.clearScreen()
@@ -15,10 +18,11 @@ while (true) {
   // move forwards
   basic.showIcon(IconNames.Yes)
     if (distanceToTarget >= 10) {
-      robotbit.StpCarTurn(10, 48)
-    } 
-    if (distanceToTarget < 10) {
-      robotbit.StpCarTurn(-10, 48)
-      robotbit.StpCarTurn(90, 10, 125)
+      robotbit.StpCarMove(10, 48, 125)
     }
-})
+    if (distanceToTarget < 10) {
+      robotbit.StpCarTurn(-10, 48, 125)
+      robotbit.StpCarTurn(90, 48, 125)
+    }
+}
+}
